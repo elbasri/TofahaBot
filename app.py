@@ -137,7 +137,7 @@ def update_dashboard(n):
     # Update DataTable
     for idx, row in df.iterrows():
         if pd.notna(row["image_url"]):
-            df.at[idx, "image_url"] = f"[View Image]({row['image_url']})"
+            df.at[idx, "image_url"] = f"<img src='{row['image_url']}' style='height:50px;' />"
 
     table_data = df.to_dict("records")
 
