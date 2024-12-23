@@ -1,0 +1,7 @@
+{
+    "mongo_username": "Nacer",
+    "mongo_password": "PWD",
+    "mongo_host": "127.0.0.1",
+    "mongo_port": 27017,
+    "mongo_auth_db": "admin"
+}
