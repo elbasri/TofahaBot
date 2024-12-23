@@ -121,7 +121,13 @@ dash_app.layout = html.Div([
 )
 def update_dashboard(n):
     df = fetch_data()
-    
+    print("Fetched DataFrame:")
+    print(df)
+
+    # Ensure 'status' column exists
+    if "status" not in df.columns:
+        df["status"] = []
+
     # Update DataTable
     table_data = df.to_dict("records")
 
