@@ -63,7 +63,7 @@
    ```
 4. افتح المتصفح وانتقل إلى:
    - لوحة التحكم: `http://localhost:5000/dashboard/`
-   - API: نقاط النهاية مثل `/api/robot/apples`.
+   - API: نقاط النهاية مثل `/api/robot/tofahat`.
 
 ---
 

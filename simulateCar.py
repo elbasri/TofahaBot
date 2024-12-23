@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 # API endpoint for data submission
-API_URL = "http://109.205.181.81:5000/api/robot/tofahas"
+API_URL = "http://109.205.181.81:5000/api/robot/tofahat"
 
 # Path to a local image file for testing
 IMAGE_PATH = "static/tests/khasra.png"  # Replace with the path to your local test image
