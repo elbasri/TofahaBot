@@ -79,7 +79,12 @@ dash_app = Dash(__name__, server=api_app, url_base_pathname='/dashboard/')
 # Fetch data from MongoDB
 def fetch_data():
     data = list(tofahat_collection.find({}, {"_id": 0}))
-    return pd.DataFrame(data)
+    df = pd.DataFrame(data)
+
+    # Ensure required columns are present
+    if df.empty:
+        df = pd.DataFrame(columns=["robot_id", "tree_id", "tofaha_id", "status", "timestamp", "image_url"])
+    return df
 
 # Layout for the dashboard
 dash_app.layout = html.Div([
