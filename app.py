@@ -90,6 +90,9 @@ def fetch_data():
 dash_app.layout = html.Div([
     html.H1("Tofaha Inspection Dashboard", style={"text-align": "center"}),
 
+    # Graph for inspection statistics
+    dcc.Graph(id="inspection-stats"),
+
     # Data table for tofaha records
     dash_table.DataTable(
         id="tofaha-table",
@@ -109,11 +112,9 @@ dash_app.layout = html.Div([
              "backgroundColor": "#ffcccc", "color": "#b30000"},
             {"if": {"filter_query": "{status} = 'healthy'", "column_id": "status"},
              "backgroundColor": "#ccffcc", "color": "#006600"}
-        ]
+        ],
+        page_size=10  # Enable navigation by limiting rows per page
     ),
-
-    # Graph for inspection statistics
-    dcc.Graph(id="inspection-stats"),
 
     # Interval for real-time updates
     dcc.Interval(id="interval-update", interval=5000, n_intervals=0)
@@ -134,6 +135,10 @@ def update_dashboard(n):
         df["status"] = []
 
     # Update DataTable
+    for idx, row in df.iterrows():
+        if pd.notna(row["image_url"]):
+            df.at[idx, "image_url"] = f"[View Image]({row['image_url']})"
+
     table_data = df.to_dict("records")
 
     # Generate inspection statistics
