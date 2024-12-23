@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 # API endpoint for data submission
-API_URL = "http://109.205.181.81:5000/api/robot/apples"
+API_URL = "http://109.205.181.81:5000/api/robot/tofahas"
 
 # Path to a local image file for testing
 IMAGE_PATH = "static/tests/khasra.png"  # Replace with the path to your local test image
@@ -14,8 +14,8 @@ def simulate_data_submission():
     data = {
         "robot_id": "robot_test_1",
         "tree_id": "tree_test_123",
-        "apple_id": "apple_test_456",
-        "status": "rotten",  # Simulating a rotten apple
+        "tofaha_id": "tofaha_test_456",
+        "status": "rotten",  # Simulating a rotten tofaha
         "timestamp": datetime.now().isoformat()
     }
 
