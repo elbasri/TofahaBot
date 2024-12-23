@@ -117,7 +117,7 @@ dash_app.layout = html.Div([
     ),
 
     # Interval for real-time updates
-    dcc.Interval(id="interval-update", interval=5000, n_intervals=0)
+    dcc.Interval(id="interval-update", interval=3000, n_intervals=0)
 ])
 
 # Callbacks for dynamic updates
@@ -137,7 +137,7 @@ def update_dashboard(n):
     # Update DataTable
     for idx, row in df.iterrows():
         if pd.notna(row["image_url"]):
-            df.at[idx, "image_url"] = f"<img src='{row['image_url']}' style='height:50px;' />"
+            df.at[idx, "image_url"] = f"![Image]({row['image_url']})"
 
     table_data = df.to_dict("records")
 

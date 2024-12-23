@@ -15,7 +15,7 @@ def simulate_data_submission():
         "robot_id": "robot_test_1",
         "tree_id": "tree_test_123",
         "tofaha_id": "tofaha_test_456",
-        "status": "good",  # Simulating a rotten tofaha
+        "status": "rotten",  # Simulating a rotten tofaha
         "timestamp": datetime.now().isoformat()
     }
 
