@@ -78,7 +78,8 @@ dash_app = Dash(__name__, server=api_app, url_base_pathname='/dashboard/')
 
 # Fetch data from MongoDB
 def fetch_data():
-    data = list(tofahat_collection.find({}, {"_id": 0}))
+    # The DESCENDING sort requires timestamp to be stored in a format that can be sorted correctly.
+    data = list(tofahat_collection.find({}, {"_id": 0}).sort("timestamp", DESCENDING))
     df = pd.DataFrame(data)
 
     # Ensure required columns are present
@@ -117,7 +118,7 @@ dash_app.layout = html.Div([
     ),
 
     # Interval for real-time updates
-    dcc.Interval(id="interval-update", interval=3000, n_intervals=0)
+    dcc.Interval(id="interval-update", interval=10000, n_intervals=0)
 ])
 
 # Callbacks for dynamic updates
